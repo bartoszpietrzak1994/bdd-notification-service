@@ -1,4 +1,3 @@
-@ignore
 Feature: Skipping sending notifications to users who disabled their subscription
   In order not to be notified about new deals
   As a Customer

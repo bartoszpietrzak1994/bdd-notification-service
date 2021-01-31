@@ -1,4 +1,3 @@
-@ignore
 Feature: Sending notifications to a user using email channel
   In order to keep track of newest changes in Bargain Service
   As a Customer

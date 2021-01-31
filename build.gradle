@@ -26,6 +26,9 @@ dependencies {
     }
     testCompile group: 'org.assertj', name: 'assertj-core', version: '3.18.1'
     annotationProcessor "org.projectlombok:lombok"
+
+    implementation "org.mapstruct:mapstruct:1.4.1.Final"
+    annotationProcessor "org.mapstruct:mapstruct-processor:1.4.1.Final"
 }
 
 configurations {
@@ -40,7 +43,13 @@ task cucumber() {
         javaexec {
             main = "io.cucumber.core.cli.Main"
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            args = ['--plugin', 'pretty', '--glue', 'com.bargain.users', 'src/test/resources']
+            args = ['--plugin', 'pretty', '--glue', 'com.bargain.notifications.steps', 'src/test/resources']
         }
     }
+}
+
+compileJava {
+    options.compilerArgs = [
+            '-Amapstruct.defaultComponentModel=spring',
+    ]
 }
