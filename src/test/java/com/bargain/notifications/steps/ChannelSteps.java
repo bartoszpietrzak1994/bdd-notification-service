@@ -1,9 +1,9 @@
 package com.bargain.notifications.steps;
 
 import com.bargain.notifications.SpringTest;
-import com.bargain.notifications.controller.ChannelController;
-import com.bargain.notifications.dto.NotificationChannel;
-import com.bargain.notifications.dto.request.CreateChannelRequest;
+import com.bargain.notifications.controller.ChannelControllerImpl;
+import com.bargain.notification.client.dto.NotificationChannel;
+import com.bargain.notification.client.dto.request.CreateChannelRequest;
 import io.cucumber.core.backend.CucumberBackendException;
 import io.cucumber.java.en.Given;
 import org.springframework.http.MediaType;
@@ -30,7 +30,7 @@ public class ChannelSteps extends SpringTest {
         createChannelRequest.setNotificationChannel(notificationChannel);
 
         MockHttpServletResponse response = this.mockMvc
-                .perform(post(ChannelController.PATH)
+                .perform(post(ChannelControllerImpl.PATH)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(createChannelRequest))
                         .accept(MediaType.APPLICATION_JSON))

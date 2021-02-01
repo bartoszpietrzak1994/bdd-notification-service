@@ -1,7 +1,7 @@
 package com.bargain.notifications.service;
 
-import com.bargain.notifications.dto.NotificationChannel;
-import com.bargain.notifications.dto.request.CreateChannelRequest;
+import com.bargain.notification.client.dto.NotificationChannel;
+import com.bargain.notification.client.dto.request.CreateChannelRequest;
 import com.bargain.notifications.model.Channel;
 
 import java.util.List;

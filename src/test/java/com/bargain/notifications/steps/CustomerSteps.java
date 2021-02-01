@@ -1,12 +1,10 @@
 package com.bargain.notifications.steps;
 
 import com.bargain.notifications.SpringTest;
-import com.bargain.notifications.controller.NotificationReceiverController;
-import com.bargain.notifications.dto.NotificationChannel;
-import com.bargain.notifications.dto.NotificationReceiverDto;
-import com.bargain.notifications.model.NotificationReceiver;
+import com.bargain.notifications.controller.NotificationReceiverControllerImpl;
+import com.bargain.notification.client.dto.NotificationChannel;
+import com.bargain.notification.client.dto.NotificationReceiverDto;
 import com.bargain.notifications.repository.NotificationReceiverRepository;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.cucumber.core.backend.CucumberBackendException;
 import io.cucumber.java.en.Given;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -120,8 +118,8 @@ public class CustomerSteps extends SpringTest {
         int status;
 
         MockHttpServletRequestBuilder requestBuilder =
-                httpMethod == HttpMethod.POST ? post(NotificationReceiverController.PATH)
-                        : put(NotificationReceiverController.PATH);
+                httpMethod == HttpMethod.POST ? post(NotificationReceiverControllerImpl.PATH)
+                        : put(NotificationReceiverControllerImpl.PATH);
         MockHttpServletResponse response = this.mockMvc
                 .perform(requestBuilder
                         .contentType(MediaType.APPLICATION_JSON)

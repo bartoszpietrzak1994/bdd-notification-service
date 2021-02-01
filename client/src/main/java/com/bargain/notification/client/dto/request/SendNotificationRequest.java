@@ -1,4 +1,4 @@
-package com.bargain.notifications.dto;
+package com.bargain.notification.client.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,20 +6,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
-import java.util.Set;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class NotificationReceiverDto {
+public class SendNotificationRequest {
 
-    private String email;
-
-    private String phoneNumber;
+    @NotBlank
+    private String message;
 
     @NotBlank
     private String userReference;
-
-    private Set<NotificationChannel> notificationChannels;
 }

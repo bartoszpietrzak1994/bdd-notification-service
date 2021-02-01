@@ -1,2 +1,3 @@
 rootProject.name = 'com.bargain.service.notification.service'
-
+include 'client'
+project(":client").name = "notification-service-client"

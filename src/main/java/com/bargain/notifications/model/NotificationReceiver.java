@@ -1,8 +1,7 @@
 package com.bargain.notifications.model;
 
-import com.bargain.notifications.dto.NotificationChannel;
+import com.bargain.notification.client.dto.NotificationChannel;
 import lombok.*;
-import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;

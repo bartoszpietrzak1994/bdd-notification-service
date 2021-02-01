@@ -1,6 +1,6 @@
 package com.bargain.notifications.model;
 
-import com.bargain.notifications.dto.NotificationChannel;
+import com.bargain.notification.client.dto.NotificationChannel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

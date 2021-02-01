@@ -1,9 +1,9 @@
 package com.bargain.notifications.steps;
 
 import com.bargain.notifications.SpringTest;
-import com.bargain.notifications.controller.NotificationController;
-import com.bargain.notifications.dto.NotificationReceiverDto;
-import com.bargain.notifications.dto.request.SendNotificationRequest;
+import com.bargain.notifications.controller.NotificationControllerImpl;
+import com.bargain.notification.client.dto.NotificationReceiverDto;
+import com.bargain.notification.client.dto.request.SendNotificationRequest;
 import io.cucumber.core.backend.CucumberBackendException;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -59,7 +59,7 @@ public class NotificationSteps extends SpringTest {
     private void sendNotification(String text, String userReference) throws Exception {
         SendNotificationRequest sendNotificationRequest = new SendNotificationRequest(text, userReference);
 
-        int status = this.mockMvc.perform(post(NotificationController.PATH)
+        int status = this.mockMvc.perform(post(NotificationControllerImpl.PATH)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(sendNotificationRequest))
                 .accept(MediaType.APPLICATION_JSON))

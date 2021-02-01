@@ -1,6 +1,6 @@
 package com.bargain.notifications.sender;
 
-import com.bargain.notifications.dto.NotificationChannel;
+import com.bargain.notification.client.dto.NotificationChannel;
 import com.bargain.notifications.gateway.SmsGateway;
 import com.bargain.notifications.model.NotificationReceiver;
 import org.springframework.beans.factory.annotation.Autowired;

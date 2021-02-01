@@ -1,6 +1,5 @@
-package com.bargain.notifications.dto.request;
+package com.bargain.notification.client.dto;
 
-import com.bargain.notifications.dto.NotificationChannel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,7 +11,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CreateChannelRequest {
+public class ChannelDto {
 
     @NotNull
     private NotificationChannel notificationChannel;

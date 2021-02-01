@@ -1,6 +1,6 @@
 package com.bargain.notifications.client;
 
-import com.bargain.notifications.dto.NotificationChannel;
+import com.bargain.notification.client.dto.NotificationChannel;
 import com.bargain.notifications.model.Channel;
 import com.bargain.notifications.model.NotificationReceiver;
 import com.bargain.notifications.repository.NotificationReceiverRepository;
