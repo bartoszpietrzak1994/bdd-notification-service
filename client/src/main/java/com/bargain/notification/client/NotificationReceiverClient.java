@@ -21,7 +21,7 @@ public class NotificationReceiverClient implements NotificationReceiverControlle
 
     @Override
     public NotificationReceiverDto create(@Valid NotificationReceiverDto notificationReceiverDto) {
-        String url = UriComponentsBuilder.fromHttpUrl(this.url + NotificationReceiverController.PATH).toString();
+        String url = UriComponentsBuilder.fromHttpUrl(this.url + NotificationReceiverController.PATH).build().toString();
 
         HttpEntity<NotificationReceiverDto> requestEntity = new HttpEntity<>(notificationReceiverDto);
 
@@ -35,7 +35,7 @@ public class NotificationReceiverClient implements NotificationReceiverControlle
 
     @Override
     public NotificationReceiverDto update(@Valid NotificationReceiverDto notificationReceiverDto) {
-        String url = UriComponentsBuilder.fromHttpUrl(this.url + NotificationReceiverController.PATH).toString();
+        String url = UriComponentsBuilder.fromHttpUrl(this.url + NotificationReceiverController.PATH).build().toString();
 
         HttpEntity<NotificationReceiverDto> requestEntity = new HttpEntity<>(notificationReceiverDto);
 
