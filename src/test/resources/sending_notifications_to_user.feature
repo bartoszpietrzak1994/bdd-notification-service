@@ -20,7 +20,6 @@ Feature: Sending notifications to a user using all available channels
     Then it should be sent to 111-222-333 phone number
     And it should be sent once
 
-  @problem
   Scenario: Sending notification to the Bargain Service user using all channels
     Given John's email address is john.doe@gmail.com
     And John's phone number is 111-222-333
