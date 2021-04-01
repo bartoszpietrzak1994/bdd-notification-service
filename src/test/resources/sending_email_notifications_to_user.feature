@@ -14,4 +14,3 @@ Feature: Sending notifications to a user using email channel
     When a message Hey! New bargains arrived! is sent to John
     Then it should be sent to john.doe@gmail.com email address
     And it should be sent once
-

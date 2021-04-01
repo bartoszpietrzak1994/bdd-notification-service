@@ -1,15 +1,30 @@
 plugins {
     id 'org.springframework.boot' version '2.2.7.RELEASE'
     id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'pl.allegro.tech.build.axion-release' version '1.11.0'
     id 'java'
+    id 'maven-publish'
 }
 
-group 'org.bdd'
-version '1.0-SNAPSHOT'
+jar {
+    enabled = true
+}
+
+version = scmVersion.version
 sourceCompatibility = '11'
 
-repositories {
-    mavenCentral()
+scmVersion {
+    repository {
+        pushTagsOnly = true
+    }
+}
+
+allprojects {
+    version = scmVersion.version
+    group = 'org.bdd'
+    repositories {
+        mavenCentral()
+    }
 }
 
 dependencies {
@@ -24,7 +39,7 @@ dependencies {
     testCompile 'io.cucumber:cucumber-java:6.9.0'
     testCompile 'io.cucumber:cucumber-junit:6.6.1'
     testCompile 'io.cucumber:cucumber-spring:6.9.0'
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile 'junit:junit:4.12',
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
@@ -41,19 +56,34 @@ configurations {
     }
 }
 
-task cucumber() {
-    dependsOn assemble, compileTestJava
-    doLast {
-        javaexec {
-            main = "io.cucumber.core.cli.Main"
-            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            args = ['--plugin', 'pretty', '--glue', 'com.bargain.notifications.steps', 'src/test/resources']
-        }
+tasks.withType(Test) {
+    dependsOn cleanTest
+    testLogging {
+        showStandardStreams = true
     }
+    systemProperties System.properties
 }
 
 compileJava {
     options.compilerArgs = [
             '-Amapstruct.defaultComponentModel=spring',
     ]
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/bartoszpietrzak1994/bdd-notification-service")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+    publications {
+        gpr(MavenPublication) {
+            from(components.java)
+        }
+    }
 }

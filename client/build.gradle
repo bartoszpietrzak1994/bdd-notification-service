@@ -1,13 +1,23 @@
 plugins {
     id 'java'
+    id 'maven-publish'
+}
+
+jar {
+    enabled = true
 }
 
 group 'org.bdd'
-version '1.0-SNAPSHOT'
 sourceCompatibility = '11'
 
 repositories {
     mavenCentral()
+}
+
+scmVersion {
+    repository {
+        pushTagsOnly = true
+    }
 }
 
 dependencies {
@@ -15,4 +25,22 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-json:2.3.8.RELEASE'
     compileOnly "org.projectlombok:lombok:1.18.18"
     annotationProcessor "org.projectlombok:lombok:1.18.18"
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/bartoszpietrzak1994/bdd-notification-service")
+            credentials {
+                username = System.getenv("USERNAME")
+                password = System.getenv("TOKEN")
+            }
+        }
+    }
 }
