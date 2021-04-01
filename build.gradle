@@ -24,7 +24,7 @@ dependencies {
     testCompile 'io.cucumber:cucumber-java:6.9.0'
     testCompile 'io.cucumber:cucumber-junit:6.6.1'
     testCompile 'io.cucumber:cucumber-spring:6.9.0'
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile 'junit:junit:4.12',
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
@@ -41,15 +41,12 @@ configurations {
     }
 }
 
-task cucumber() {
-    dependsOn assemble, compileTestJava
-    doLast {
-        javaexec {
-            main = "io.cucumber.core.cli.Main"
-            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            args = ['--plugin', 'pretty', '--glue', 'com.bargain.notifications.steps', 'src/test/resources']
-        }
+tasks.withType(Test) {
+    dependsOn cleanTest
+    testLogging {
+        showStandardStreams = true
     }
+    systemProperties System.properties
 }
 
 compileJava {
