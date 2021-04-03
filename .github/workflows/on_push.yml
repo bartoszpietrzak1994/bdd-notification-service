@@ -26,10 +26,10 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ github.token }}
-      - name: Deploy jar file
-        run: |
-          ./gradlew release --scan
-          ./gradlew publish
+      - name: Release
+        run: ./gradlew release --scan
+      - name: Publish jar file
+        run: ./gradlew publish
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v2
         with:
