@@ -6,7 +6,7 @@ plugins {
     id 'maven-publish'
 }
 
-version = scmVersion.version
+project.version = scmVersion.version
 sourceCompatibility = '11'
 
 allprojects {
