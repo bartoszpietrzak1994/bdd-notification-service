@@ -1,4 +1,4 @@
-package com.bargain.notifications.model;
+package com.bargain.notifications.common;
 
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;

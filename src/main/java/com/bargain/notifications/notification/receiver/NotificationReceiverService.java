@@ -1,23 +1,18 @@
-package com.bargain.notifications.client;
+package com.bargain.notifications.notification.receiver;
 
-import com.bargain.notifications.model.NotificationReceiver;
-import com.bargain.notifications.repository.NotificationReceiverRepository;
-import com.bargain.notifications.service.NotificationReceiverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class NotificationReceiverServiceImpl implements NotificationReceiverService {
+public class NotificationReceiverService {
 
     @Autowired
     private NotificationReceiverRepository notificationReceiverRepository;
 
-    @Override
     public NotificationReceiver create(NotificationReceiver notificationReceiver) {
         return notificationReceiverRepository.save(notificationReceiver);
     }
 
-    @Override
     public NotificationReceiver update(NotificationReceiver notificationReceiver) {
         NotificationReceiver existingNotificationReceiver = notificationReceiverRepository
                 .getOneByUserReference(notificationReceiver.getUserReference());

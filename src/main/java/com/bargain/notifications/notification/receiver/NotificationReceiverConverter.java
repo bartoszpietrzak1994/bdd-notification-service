@@ -1,7 +1,7 @@
-package com.bargain.notifications.converter;
+package com.bargain.notifications.notification.receiver;
 
 import com.bargain.notification.client.dto.NotificationReceiverDto;
-import com.bargain.notifications.model.NotificationReceiver;
+import com.bargain.notifications.notification.receiver.NotificationReceiver;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;

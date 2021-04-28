@@ -1,10 +1,10 @@
 package com.bargain.notifications.steps;
 
 import com.bargain.notifications.SpringTest;
-import com.bargain.notifications.controller.NotificationReceiverControllerImpl;
+import com.bargain.notifications.notification.receiver.NotificationReceiverControllerImpl;
 import com.bargain.notification.client.dto.NotificationChannel;
 import com.bargain.notification.client.dto.NotificationReceiverDto;
-import com.bargain.notifications.repository.NotificationReceiverRepository;
+import com.bargain.notifications.notification.receiver.NotificationReceiverRepository;
 import io.cucumber.core.backend.CucumberBackendException;
 import io.cucumber.java.en.Given;
 import org.springframework.beans.factory.annotation.Autowired;

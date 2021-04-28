@@ -1,10 +1,8 @@
 package com.bargain.notifications;
 
 import com.bargain.notifications.common.service.SharedStorage;
-import com.bargain.notifications.gateway.EmailGateway;
-import com.bargain.notifications.gateway.SmsGateway;
-import com.bargain.notifications.sender.EmailNotificationSender;
-import com.bargain.notifications.sender.SmsNotificationSender;
+import com.bargain.notifications.notification.sender.gateway.EmailGateway;
+import com.bargain.notifications.notification.sender.gateway.SmsGateway;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.cucumber.spring.CucumberContextConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;

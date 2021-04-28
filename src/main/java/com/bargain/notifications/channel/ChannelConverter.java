@@ -1,7 +1,7 @@
-package com.bargain.notifications.converter;
+package com.bargain.notifications.channel;
 
 import com.bargain.notification.client.dto.ChannelDto;
-import com.bargain.notifications.model.Channel;
+import com.bargain.notifications.channel.Channel;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;

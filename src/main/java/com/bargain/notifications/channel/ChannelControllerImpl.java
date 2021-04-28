@@ -1,13 +1,10 @@
-package com.bargain.notifications.controller;
+package com.bargain.notifications.channel;
 
 import com.bargain.notification.client.ChannelController;
 import com.bargain.notification.client.dto.ChannelDto;
 import com.bargain.notification.client.dto.NotificationChannel;
 import com.bargain.notification.client.dto.request.CreateChannelRequest;
 import com.bargain.notifications.NotificationServiceApp;
-import com.bargain.notifications.converter.ChannelConverter;
-import com.bargain.notifications.model.Channel;
-import com.bargain.notifications.service.ChannelService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -34,7 +31,7 @@ public class ChannelControllerImpl implements ChannelController {
     public ChannelDto create(@Valid @RequestBody CreateChannelRequest createChannelRequest) {
         log.info("About to create a notification channel {}", createChannelRequest.getNotificationChannel().name());
 
-        Channel channel = channelService.createChannel(createChannelRequest);
+        Channel channel = channelService.create(createChannelRequest);
         return channelConverter.toDto(channel);
     }
 
@@ -42,7 +39,7 @@ public class ChannelControllerImpl implements ChannelController {
     public ChannelDto enable(@PathVariable String channelType) {
         log.info("About to enable notification channel {}", channelType);
 
-        Channel channel = channelService.enableChannel(NotificationChannel.valueOf(channelType));
+        Channel channel = channelService.enable(NotificationChannel.valueOf(channelType));
         return channelConverter.toDto(channel);
     }
 
@@ -50,7 +47,7 @@ public class ChannelControllerImpl implements ChannelController {
     public ChannelDto disable(@PathVariable String channelType) {
         log.info("About to disable notification channel {}", channelType);
 
-        Channel channel = channelService.disableChannel(NotificationChannel.valueOf(channelType));
+        Channel channel = channelService.disable(NotificationChannel.valueOf(channelType));
         return channelConverter.toDto(channel);
     }
 }

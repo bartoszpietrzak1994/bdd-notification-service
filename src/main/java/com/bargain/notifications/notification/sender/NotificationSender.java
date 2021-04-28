@@ -1,7 +1,7 @@
-package com.bargain.notifications.sender;
+package com.bargain.notifications.notification.sender;
 
 import com.bargain.notification.client.dto.NotificationChannel;
-import com.bargain.notifications.model.NotificationReceiver;
+import com.bargain.notifications.notification.receiver.NotificationReceiver;
 
 public interface NotificationSender {
 

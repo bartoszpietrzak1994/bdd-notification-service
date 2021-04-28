@@ -1,6 +1,5 @@
-package com.bargain.notifications.repository;
+package com.bargain.notifications.notification.receiver;
 
-import com.bargain.notifications.model.NotificationReceiver;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

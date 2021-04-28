@@ -1,7 +1,7 @@
 package com.bargain.notifications.steps;
 
 import com.bargain.notifications.SpringTest;
-import com.bargain.notifications.controller.NotificationControllerImpl;
+import com.bargain.notifications.notification.NotificationControllerImpl;
 import com.bargain.notification.client.dto.NotificationReceiverDto;
 import com.bargain.notification.client.dto.request.SendNotificationRequest;
 import io.cucumber.core.backend.CucumberBackendException;

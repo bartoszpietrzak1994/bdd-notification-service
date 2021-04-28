@@ -1,6 +1,7 @@
-package com.bargain.notifications.model;
+package com.bargain.notifications.notification.receiver;
 
 import com.bargain.notification.client.dto.NotificationChannel;
+import com.bargain.notifications.common.BaseEntity;
 import lombok.*;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.LazyCollection;

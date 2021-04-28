@@ -1,22 +1,17 @@
-package com.bargain.notifications.controller;
+package com.bargain.notifications.notification.receiver;
 
 import com.bargain.notification.client.NotificationReceiverController;
 import com.bargain.notification.client.dto.NotificationReceiverDto;
-import com.bargain.notifications.converter.NotificationReceiverConverter;
-import com.bargain.notifications.model.NotificationReceiver;
-import com.bargain.notifications.service.NotificationReceiverService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
 @Validated
 @RestController
-@RequestMapping(NotificationReceiverControllerImpl.PATH)
 @Slf4j
 public class NotificationReceiverControllerImpl implements NotificationReceiverController {
 

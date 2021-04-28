@@ -1,7 +1,6 @@
-package com.bargain.notifications.repository;
+package com.bargain.notifications.channel;
 
 import com.bargain.notification.client.dto.NotificationChannel;
-import com.bargain.notifications.model.Channel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

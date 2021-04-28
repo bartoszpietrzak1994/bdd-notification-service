@@ -1,9 +1,8 @@
-package com.bargain.notifications.controller;
+package com.bargain.notifications.notification;
 
 import com.bargain.notification.client.NotificationController;
 import com.bargain.notification.client.dto.request.SendNotificationRequest;
 import com.bargain.notifications.NotificationServiceApp;
-import com.bargain.notifications.service.NotificationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -25,7 +24,6 @@ public class NotificationControllerImpl implements NotificationController {
     @Override
     public void send(@Valid @RequestBody SendNotificationRequest sendNotificationRequest) {
         log.info("About to send a notification to user {}", sendNotificationRequest.getUserReference());
-
         notificationService.send(sendNotificationRequest.getMessage(), sendNotificationRequest.getUserReference());
     }
 }

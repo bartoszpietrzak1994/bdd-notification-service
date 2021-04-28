@@ -1,8 +1,8 @@
 package com.bargain.notifications.steps;
 
 import com.bargain.notifications.SpringTest;
-import com.bargain.notifications.repository.ChannelRepository;
-import com.bargain.notifications.repository.NotificationReceiverRepository;
+import com.bargain.notifications.channel.ChannelRepository;
+import com.bargain.notifications.notification.receiver.NotificationReceiverRepository;
 import io.cucumber.java.Before;
 import org.springframework.beans.factory.annotation.Autowired;
 

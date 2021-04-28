@@ -1,12 +1,11 @@
-package com.bargain.notifications.client;
+package com.bargain.notifications.notification;
 
 import com.bargain.notification.client.dto.NotificationChannel;
-import com.bargain.notifications.model.Channel;
-import com.bargain.notifications.model.NotificationReceiver;
-import com.bargain.notifications.repository.NotificationReceiverRepository;
-import com.bargain.notifications.sender.NotificationSender;
-import com.bargain.notifications.service.ChannelService;
-import com.bargain.notifications.service.NotificationService;
+import com.bargain.notifications.channel.ChannelService;
+import com.bargain.notifications.channel.Channel;
+import com.bargain.notifications.notification.receiver.NotificationReceiver;
+import com.bargain.notifications.notification.receiver.NotificationReceiverRepository;
+import com.bargain.notifications.notification.sender.NotificationSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +14,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-public class NotificationServiceImpl implements NotificationService {
+public class NotificationService {
 
     @Autowired
     private ChannelService channelService;
@@ -26,7 +25,6 @@ public class NotificationServiceImpl implements NotificationService {
     @Autowired
     private NotificationReceiverRepository notificationReceiverRepository;
 
-    @Override
     public void send(String message, String userReference) {
         NotificationReceiver notificationReceiver = notificationReceiverRepository.getOneByUserReference(userReference);
         Set<NotificationChannel> receiverNotificationChannels = notificationReceiver.getNotificationChannels();
